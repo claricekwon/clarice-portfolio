@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minyoung Kwon — Brand & Experience Strategist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FAF9F6;
+    --text: #14141A;
+    --text-soft: #6B6B72;
+    --card: #FFFFFF;
+    --line: rgba(20,20,26,0.08);
+    --blue: #3E5FD9;
+    --amber: #C98A2E;
+    --glow: rgba(0,0,0,0);
+    --shadow: 0 1px 2px rgba(20,20,26,0.04), 0 12px 28px rgba(20,20,26,0.05);
+    --radius: 22px;
+    --transition-speed: 0.9s;
+  }
+  body.night{
+    --bg: #0B0B0D;
+    --text: #F1EFE8;
+    --text-soft: #9A97A0;
+    --card: #17161C;
+    --line: rgba(241,239,232,0.09);
+    --blue: #7FA6FF;
+    --amber: #E3B565;
+    --glow: rgba(227,181,101,0.10);
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 16px 36px rgba(0,0,0,0.35);
+  }
+  @media (prefers-reduced-motion: reduce){ *{ transition: none !important; } }
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0; background: var(--bg); color: var(--text);
+    font-family: 'Inter', sans-serif;
+    transition: background var(--transition-speed) ease, color var(--transition-speed) ease;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap{ max-width: 920px; margin: 0 auto; padding: 0 28px; }
+  .eyebrow{
+    font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 11.5px;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-soft); margin: 0 0 16px 0;
+  }
+  h1,h2,h3{ font-family: 'Inter', sans-serif; margin:0; letter-spacing:-0.02em; }
+  a{ color: var(--blue); }
+
+  nav{
+    position: sticky; top:0; z-index: 10; backdrop-filter: blur(10px);
+    background: color-mix(in srgb, var(--bg) 80%, transparent);
+    border-bottom: 1px solid var(--line);
+    transition: background var(--transition-speed) ease, border-color var(--transition-speed) ease;
+  }
+  .nav-inner{ max-width: 920px; margin:0 auto; padding: 18px 28px; display:flex; align-items:center; justify-content:space-between; }
+  .mark{ font-family:'Inter'; font-weight:700; font-size:18px; }
+  .nav-links{ display:flex; gap:26px; align-items:center; }
+  .nav-links a{ font-family:'IBM Plex Mono'; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color: var(--text); text-decoration:none; opacity:0.7; }
+  .nav-links a:hover{ opacity:1; }
+
+  .toggle{
+    display:flex; align-items:center; gap:9px; font-family:'IBM Plex Mono'; font-size:11px;
+    letter-spacing:0.06em; text-transform:uppercase; color: var(--text-soft); cursor:pointer; user-select:none;
+    border:1px solid var(--line); padding:8px 13px; border-radius: 999px;
+    transition: border-color var(--transition-speed) ease;
+  }
+  .switch{ width:34px; height:18px; border-radius:999px; background: var(--line); position:relative; transition: background 0.4s ease; }
+  .switch::after{ content:''; position:absolute; width:14px; height:14px; border-radius:50%; background: var(--amber); top:2px; left:2px; transition: left 0.4s ease, background 0.4s ease; }
+  body.night .switch::after{ left:18px; background: var(--blue); }
+
+  /* HERO */
+  .hero{ padding: 100px 0 60px 0; }
+  .badge{
+    display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono'; font-size:11.5px;
+    letter-spacing:0.04em; color: var(--text-soft); border:1px solid var(--line); background: var(--card);
+    box-shadow: var(--shadow); padding:8px 16px; border-radius:999px; margin-bottom:28px;
+  }
+  .badge .dot{ width:7px; height:7px; border-radius:50%; background:#3FB56C; }
+  .hero h1{ font-size: 58px; line-height:1.04; font-weight:800; max-width: 720px; }
+  .hero h1 .accent{ color: var(--blue); }
+  .hero .sub{ margin-top:26px; max-width: 520px; font-size:17px; line-height:1.65; color: var(--text-soft); }
+  .ambient{ margin-top: 26px; font-family:'IBM Plex Mono'; font-size:12px; color: var(--text-soft); display:flex; gap:8px; align-items:center; }
+  .cta-row{ margin-top: 36px; display:flex; gap:14px; flex-wrap:wrap; }
+  .btn{ font-family:'Inter'; font-weight:600; font-size:14px; padding:14px 24px; border-radius: 999px; text-decoration:none; display:inline-block; transition: transform 0.2s ease, opacity 0.2s ease; }
+  .btn:hover{ transform: translateY(-1px); }
+  .btn-primary{ background: var(--text); color: var(--bg); }
+  .btn-secondary{ border:1px solid var(--line); color: var(--text); background: var(--card); }
+
+  /* CREDIBILITY */
+  .credibility{ padding: 32px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .credibility p.label{ font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color: var(--text-soft); margin:0 0 16px 0; }
+  .logos{ display:flex; flex-wrap:wrap; gap: 24px 34px; }
+  .logos span{ font-family:'Inter'; font-weight:600; font-size:15px; color: var(--text-soft); }
+
+  section{ padding: 84px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type{ border-bottom:none; }
+  .section-title{ font-size: 32px; font-weight:700; margin-bottom: 18px; max-width: 600px; }
+  .section-intro{ color: var(--text-soft); font-size:15.5px; line-height:1.65; max-width: 600px; margin-bottom: 36px; }
+  .subhead{ font-family:'Inter'; font-weight:700; font-size:16px; margin: 40px 0 16px 0; }
+  .subhead .letter{ color: var(--amber); margin-right:8px; }
+  .body-text{ font-size:14.5px; line-height:1.75; color: var(--text-soft); max-width: 640px; }
+  .body-text p{ margin: 0 0 12px 0; }
+  .body-text ul{ margin: 8px 0 12px 0; padding-left:20px; }
+  .body-text li{ margin-bottom:6px; }
+  .body-text b{ color: var(--text); font-weight:600; }
+
+  /* ABOUT */
+  .about-body{ font-size:16.5px; line-height:1.8; max-width: 640px; }
+  .about-body p{ margin: 0 0 16px 0; }
+
+  /* CASE STUDY */
+  .case-tag{ display:inline-block; font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color: var(--amber); border:1px solid var(--line); background: var(--card); box-shadow: var(--shadow); padding:7px 14px; border-radius:999px; margin-bottom:20px; }
+  .case-note{ font-size:13.5px; color: var(--text-soft); line-height:1.65; margin: 22px 0 34px 0; padding: 18px 20px; border-left: 2px solid var(--amber); background: var(--glow); border-radius: 0 14px 14px 0; }
+  .intro-block{ font-size:15px; line-height:1.75; color: var(--text-soft); max-width: 640px; margin-bottom: 34px; }
+  .intro-block b{ color: var(--text); font-weight:600; }
+
+  .gap-table{ display:grid; grid-template-columns: 1fr 1fr; gap:1px; background: var(--line); border-radius: var(--radius); overflow:hidden; margin: 10px 0 40px 0; box-shadow: var(--shadow); }
+  .gap-table > div{ background: var(--card); padding: 22px; font-size:14px; line-height:1.55; }
+  .gap-table .head{ font-family:'IBM Plex Mono'; font-size:11px; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-soft); font-weight:500; }
+  .gap-table b{ color: var(--blue); }
+
+  .promise-block{ background: var(--card); border:1px solid var(--line); box-shadow: var(--shadow); border-radius: var(--radius); padding:26px 28px; margin-bottom: 44px; }
+  .promise-block .eyebrow{ margin-bottom:8px; }
+  .promise-block p{ font-family:'Inter'; font-weight:700; font-size:22px; color: var(--blue); margin:0; }
+
+  .pillar-block{ margin-bottom: 44px; }
+  .pillar-head{ display:flex; align-items:baseline; gap:14px; margin-bottom:14px; }
+  .pillar-head .num{ font-family:'IBM Plex Mono'; font-size:13px; color: var(--amber); }
+  .pillar-head h4{ font-size:20px; font-weight:700; }
+  .sub-cards{ display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-top:18px; }
+  .sub-card{ background: var(--card); border:1px solid var(--line); box-shadow: var(--shadow); border-radius: var(--radius); padding: 22px; }
+  .sub-card .tag{ font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color: var(--text-soft); margin-bottom:10px; }
+  .sub-card h5{ font-family:'Inter'; font-size:15px; font-weight:700; margin:0 0 8px 0; }
+  .sub-card p, .sub-card ul{ font-size:13.5px; color: var(--text-soft); line-height:1.6; margin:0; padding-left:18px; }
+  .sub-card li{ margin-bottom:4px; }
+
+  .summary-list{ background: var(--card); border:1px solid var(--line); box-shadow: var(--shadow); border-radius: var(--radius); padding:28px 30px; }
+  .summary-list .item{ display:flex; gap:14px; margin-bottom:18px; }
+  .summary-list .item:last-child{ margin-bottom:0; }
+  .summary-list .item .mkr{ font-family:'IBM Plex Mono'; font-size:12px; color: var(--amber); flex-shrink:0; padding-top:2px; }
+  .summary-list .item div p{ margin:0; font-size:14px; line-height:1.6; color: var(--text-soft); }
+  .summary-list .item div b{ color: var(--text); }
+
+  /* SERVICES */
+  .services{ display:grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+  .service-card{ background: var(--card); border:1px solid var(--line); box-shadow: var(--shadow); border-radius: var(--radius); padding: 28px; display:flex; flex-direction:column; }
+  .service-card .phase{ font-family:'IBM Plex Mono'; font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color: var(--text-soft); margin-bottom:10px; }
+  .service-card h3{ font-size:19px; margin-bottom:14px; }
+  .service-card ul{ padding-left:18px; margin:0 0 22px 0; font-size:13.5px; color: var(--text-soft); line-height:1.7; }
+  .service-card .price{ margin-top:auto; font-family:'Inter'; font-weight:700; font-size:23px; color: var(--blue); }
+  .service-card .price span{ font-family:'Inter'; font-weight:400; font-size:12px; color: var(--text-soft); }
+
+  /* CONTACT */
+  .contact-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items:start; }
+  form{ display:flex; flex-direction:column; gap:12px; }
+  input, textarea{
+    font-family:'Inter'; font-size:14px; background: var(--card); color: var(--text);
+    border:1px solid var(--line); border-radius:12px; padding:14px 15px; outline:none;
+    transition: border-color 0.2s ease; box-shadow: var(--shadow);
+  }
+  input:focus, textarea:focus{ border-color: var(--blue); }
+  textarea{ min-height:110px; resize:vertical; }
+  .contact-direct p{ font-size:14px; color: var(--text-soft); line-height:1.8; margin:0 0 4px 0; }
+  .contact-direct a{ color: var(--text); text-decoration:underline; }
+
+  footer{ padding: 36px 0 54px 0; text-align:center; font-family:'IBM Plex Mono'; font-size:11px; color: var(--text-soft); }
+
+  @media (max-width: 720px){
+    .hero h1{ font-size:38px; }
+    .services, .contact-grid, .gap-table, .sub-cards{ grid-template-columns: 1fr; }
+    .nav-links{ display:none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="mark">MK</div>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="toggle" id="modeToggle">
+      <span id="toggleLabel">Try the Sunset Switch</span>
+      <div class="switch"></div>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="badge"><span class="dot"></span>Currently taking on new projects</div>
+    <h1>I find the identity<br>your business<br><span class="accent">already has.</span></h1>
+    <p class="sub">Positioning, brand strategy, and content systems that turn "just another option" into "the one people choose" — built from what's already true about the business, not a generic playbook.</p>
+    <div class="ambient" id="ambientLine">☀ Ordinary hours — everyone looks the same</div>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#work">See the work</a>
+      <a class="btn btn-secondary" href="#contact">Start a project</a>
+    </div>
+  </section>
+
+  <section class="credibility">
+    <p class="label">Background across global enterprises &amp; high-growth startups</p>
+    <div class="logos">
+      <span>Samsung</span><span>Google</span><span>Trip.com Group</span>
+      <span>KB Financial Group</span><span>ULOS Skincare</span><span>LaundryGo</span>
+    </div>
+  </section>
+
+  <section id="about">
+    <p class="eyebrow">About</p>
+    <h2 class="section-title">Minyoung Kwon</h2>
+    <div class="about-body">
+      <p>I'm a brand and experience strategist based in Auckland. Before working directly with small business owners, my background spans global teams and fast-moving startups — which is where I learned that most businesses don't have a marketing problem, they have an identity problem.</p>
+      <p>I help owners define who their space is really for, then build the positioning, content system, and in-store experience that makes that identity impossible to miss.</p>
+    </div>
+  </section>
+
+  <section id="work">
+    <p class="eyebrow">Selected Strategic Work</p>
+    <h2 class="section-title">Mixed 1981 — Auckland CBD Café</h2>
+    <span class="case-tag">Sample Engagement</span>
+    <div class="intro-block">
+      Mixed 1981 is a Korean-inspired café in Auckland CBD with a genuinely rare "blue ocean" advantage: <b>extended late-night hours</b> and <b>high-quality seating</b> — something almost no other café in the area offers. I was brought in to figure out why that advantage wasn't translating into foot traffic or brand recognition.
+    </div>
+    <div class="case-note">
+      This engagement is currently paused before execution — shown here as a full sample of the diagnostic, strategy, and action plan I deliver, not as a completed results case study.
+    </div>
+
+    <div class="subhead"><span class="letter">01</span>The Problem: An "Identity Gap"</div>
+    <div class="body-text">
+      <p>Mixed 1981 had the ingredients for a standout brand, but the public perception didn't match the opportunity. The brand was sitting between four different identities at once — study café, dessert café, Korean-inspired café, and late-night café — which created confusion and weak recall instead of a clear reason to choose it.</p>
+    </div>
+    <div class="gap-table">
+      <div class="head">Current Perception</div>
+      <div class="head">The Opportunity</div>
+      <div>A "hidden gem" people stumble upon, rather than seek out</div>
+      <div>A <b>destination staple</b> for Auckland's creative &amp; student community</div>
+      <div>Caught between study café, dessert café, Korean café and late-night café — confusing, weak recall</div>
+      <div>One clear line: the <b>"Seoul-Inspired Urban Retreat"</b> for deep work</div>
+      <div>Functional late-night hours, but no defined night-time experience, behavioural triggers, or content reinforcing "night culture"</div>
+      <div>An <b>intentional night-time experience</b> people actively plan around — the "Sunset Switch"</div>
+    </div>
+
+    <div class="subhead"><span class="letter">02</span>The Strategy: Three Pillars</div>
+
+    <div class="pillar-block">
+      <div class="pillar-head"><span class="num">Pillar I</span><h4>Defining the "Mixed 1981 Tribe"</h4></div>
+      <div class="body-text">
+        <p>To move beyond a generic café, the brand needed to define who it's for — not just what it sells.</p>
+        <ul>
+          <li><b>Target persona:</b> the "Ambitious Creative" and the "Deep-Work Student."</li>
+          <li><b>Brand promise:</b> "Auckland's Second Wind" — a space for people who find their flow after the rest of the city closes.</li>
+          <li><b>Social proof shift:</b> from photos of coffee to photos of people in their element — laptops, notebooks, and signature drinks in a focused environment — making the night-time usage visible and aspirational.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pillar-block">
+      <div class="pillar-head"><span class="num">Pillar II</span><h4>The "Night-Time Destination"</h4></div>
+      <div class="body-text">
+        <p>Being open late is a function. Making it a destination is the marketing solution — shifting from selling "late hours" to selling "the night-time vibe."</p>
+      </div>
+      <div class="sub-cards">
+        <div class="sub-card">
+          <div class="tag">A. Marketing the "Sunset Switch"</div>
+          <h5>The After-Hours Collective</h5>
+          <ul>
+            <li>A content series showcasing high-aesthetic "study-with-me" and working-creative snapshots of the evening atmosphere</li>
+            <li>Captions that define the guest — "the lights are low, the focus is high" — turning a visit into an identity statement, not just a coffee run</li>
+          </ul>
+        </div>
+        <div class="sub-card">
+          <div class="tag">B. Building "Why Go Tonight?"</div>
+          <h5>Night-only features &amp; environment shift</h5>
+          <ul>
+            <li>"Midnight Fuel" combos and caffeine-free "Night-Cap" Korean herbal teas/ades, branded specifically for evening visitors</li>
+            <li>At 6pm, the café shifts from Day Mode to Focus Mode: dimmed overheads, warm desk lamps, and a curated "Seoul Night" lo-fi/jazz playlist</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="pillar-block">
+      <div class="pillar-head"><span class="num">Pillar III</span><h4>Digital Precision &amp; Premium Branding</h4></div>
+      <div class="body-text">
+        <p>Because Mixed 1981 is a "hidden gem," the first impression happens on Maps and Instagram before anyone walks in — consistency there is what protects a premium price point.</p>
+      </div>
+      <div class="sub-cards">
+        <div class="sub-card">
+          <div class="tag">A. Google Maps cleanup</div>
+          <h5>Eliminate confusion</h5>
+          <ul>
+            <li>Remove outdated photos from the café's former identity that dilute the premium Seoul aesthetic</li>
+            <li>Upload a high-density photo set so the first five images a searcher sees are current, high-quality, and on-brand</li>
+          </ul>
+        </div>
+        <div class="sub-card">
+          <div class="tag">B. Instagram — the "Rule of Two"</div>
+          <h5>Consistent, curated feed</h5>
+          <ul>
+            <li>Lock in two fonts for all stories and posts, for instant brand recognition</li>
+            <li>Follow a consistent "Product → Person → Space" posting rhythm so the grid reads as intentional, not random</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="promise-block">
+      <p class="eyebrow" style="margin-bottom:8px;">Brand Promise</p>
+      <p>"Auckland's Second Wind."</p>
+    </div>
+
+    <div class="subhead"><span class="letter">03</span>Summary of Recommended Actions</div>
+    <div class="summary-list">
+      <div class="item">
+        <span class="mkr">→</span>
+        <div><p><b>Brand positioning:</b> reposition the marketing to focus on the user — creatives and students — rather than just the menu.</p></div>
+      </div>
+      <div class="item">
+        <span class="mkr">→</span>
+        <div><p><b>Experience marketing:</b> launch the "Sunset Switch" campaign so the evening hours read as an intentional vibe, not just a functional convenience.</p></div>
+      </div>
+      <div class="item">
+        <span class="mkr">→</span>
+        <div><p><b>Digital audit:</b> cleanse Google Maps of outdated branding and unify Instagram typography immediately.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <p class="eyebrow">Services</p>
+    <h2 class="section-title">Work with me</h2>
+    <p class="section-intro">A three-phase system — from finding the identity to living inside it every month.</p>
+    <div class="services">
+      <div class="service-card">
+        <div class="phase">Phase 01</div>
+        <h3>Brand Positioning Foundation</h3>
+        <ul>
+          <li>Refined brand positioning</li>
+          <li>Target audience definition</li>
+          <li>Tone of voice direction</li>
+        </ul>
+        <div class="price">$200</div>
+      </div>
+      <div class="service-card">
+        <div class="phase">Phase 02</div>
+        <h3>Strategy + Action Plan</h3>
+        <ul>
+          <li>Final brand statement</li>
+          <li>Instagram content system &amp; posting calendar</li>
+          <li>Monthly campaign direction</li>
+          <li>Visual direction &amp; references</li>
+        </ul>
+        <div class="price">Quoted <span>per project</span></div>
+      </div>
+      <div class="service-card">
+        <div class="phase">Phase 03</div>
+        <h3>Ongoing Support</h3>
+        <ul>
+          <li>Monthly content direction</li>
+          <li>Campaign planning &amp; refinement</li>
+          <li>Feedback on posts / branding</li>
+        </ul>
+        <div class="price">$250 <span>/ month</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <p class="eyebrow">Contact</p>
+    <h2 class="section-title">Start a project</h2>
+    <p class="section-intro">Tell me a bit about your business — I read every message myself.</p>
+    <div class="contact-grid">
+      <form id="contactForm">
+        <input type="text" name="Name" placeholder="Your name" required>
+        <input type="email" name="Email" placeholder="Email address" required>
+        <input type="text" name="Business" placeholder="Business name">
+        <textarea name="Message" placeholder="What are you working on?" required></textarea>
+        <button class="btn btn-primary" type="submit" id="submitBtn" style="border:none; cursor:pointer;">Send message</button>
+        <p id="formStatus" style="font-size:13px; margin:4px 0 0 0; display:none;"></p>
+      </form>
+      <div class="contact-direct">
+        <p>Minyoung Kwon</p>
+        <p>Brand &amp; Experience Strategist</p>
+        <p><a href="mailto:kwon.clarice@gmail.com">kwon.clarice@gmail.com</a></p>
+        <p>027 434 6838</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>© 2026 Minyoung Kwon — Brand &amp; Experience Strategy</footer>
+
+<script>
+  const toggle = document.getElementById('modeToggle');
+  const label = document.getElementById('toggleLabel');
+  const ambient = document.getElementById('ambientLine');
+  toggle.addEventListener('click', () => {
+    const isNight = document.body.classList.toggle('night');
+    label.textContent = isNight ? 'Back to Day Mode' : 'Try the Sunset Switch';
+    ambient.textContent = isNight
+      ? '🌙 11:47 PM — Focus Mode: lights low, focus high'
+      : '☀ Ordinary hours — everyone looks the same';
+  });
+
+  const contactForm = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const formStatus = document.getElementById('formStatus');
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(contactForm);
+    const name = data.get('Name');
+    const email = data.get('Email');
+    const business = data.get('Business');
+    const message = data.get('Message');
+
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+    formStatus.style.display = 'none';
+
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/kwon.clarice@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          Name: name, Email: email, Business: business, Message: message,
+          _subject: 'New project inquiry from portfolio site'
+        })
+      });
+
+      if (!res.ok) throw new Error('Request failed');
+
+      submitBtn.textContent = 'Send message';
+      submitBtn.disabled = false;
+      formStatus.style.display = 'block';
+      formStatus.style.color = '#3FB56C';
+      formStatus.textContent = "Sent! I'll get back to you soon.";
+      contactForm.reset();
+    } catch (err) {
+      submitBtn.textContent = 'Send message';
+      submitBtn.disabled = false;
+      formStatus.style.display = 'block';
+      formStatus.style.color = '#C94E4E';
+      formStatus.innerHTML = 'Something went wrong — please email me directly at ' +
+        '<a href="mailto:kwon.clarice@gmail.com?subject=Project%20inquiry&body=' +
+        encodeURIComponent('Name: ' + name + '\nBusiness: ' + business + '\nMessage: ' + message) +
+        '">kwon.clarice@gmail.com</a>.';
+    }
+  });
+</script>
+
+</body>
+</html>
