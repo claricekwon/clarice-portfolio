@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Clarice Kwon — Brand & Experience Strategist</title>
+<title>Clarice Kwon: Google Maps Growth Consultant</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
@@ -92,8 +92,26 @@
   /* CREDIBILITY */
   .credibility{ padding: 32px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
   .credibility p.label{ font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color: var(--text-soft); margin:0 0 16px 0; }
-  .logos{ display:flex; flex-wrap:wrap; gap: 24px 34px; }
-  .logos span{ font-family:'Inter'; font-weight:600; font-size:15px; color: var(--text-soft); }
+  .logos{ display:flex; flex-wrap:wrap; gap: 22px 30px; }
+  .logo-item{ display:flex; align-items:center; gap:9px; }
+  .logo-mark{
+    width:26px; height:26px; border-radius:7px; background: var(--line);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Inter'; font-weight:700; font-size:12px; color: var(--text-soft);
+    flex-shrink:0;
+  }
+  .logo-item span{ font-family:'Inter'; font-weight:600; font-size:15px; color: var(--text-soft); }
+
+  .stat-grid{ display:grid; grid-template-columns: repeat(4,1fr); gap:16px; margin-top:34px; }
+  .stat-card{ background: var(--card); border:1px solid var(--line); box-shadow: var(--shadow); border-radius: var(--radius); padding:22px 20px; }
+  .stat-card .num{ font-family:'Inter'; font-weight:800; font-size:32px; color: var(--blue); letter-spacing:-0.02em; line-height:1; margin-bottom:10px; }
+  .stat-card .desc{ font-size:13px; color: var(--text-soft); line-height:1.5; margin-bottom:8px; }
+  .stat-card .source{ font-family:'IBM Plex Mono'; font-size:10px; color: var(--text-soft); opacity:0.7; }
+  .why-closer{ margin-top:30px; font-size:15px; line-height:1.7; color: var(--text-soft); max-width: 640px; }
+  .why-closer b{ color: var(--text); }
+  @media (max-width: 720px){
+    .stat-grid{ grid-template-columns: repeat(2,1fr); }
+  }
 
   section{ padding: 84px 0; border-bottom: 1px solid var(--line); }
   section:last-of-type{ border-bottom:none; }
@@ -114,12 +132,15 @@
   /* CASE STUDY */
   .case-tag{ display:inline-block; font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color: var(--amber); border:1px solid var(--line); background: var(--card); box-shadow: var(--shadow); padding:7px 14px; border-radius:999px; margin-bottom:20px; }
   .case-note{ font-size:13.5px; color: var(--text-soft); line-height:1.65; margin: 22px 0 34px 0; padding: 18px 20px; border-left: 2px solid var(--amber); background: var(--glow); border-radius: 0 14px 14px 0; }
+  .sample-post{ font-size:13px; color: var(--text); line-height:1.6; margin:10px 0; padding:12px 14px; border-left:2px solid var(--blue); background: rgba(62,95,217,0.05); border-radius:0 10px 10px 0; font-style:italic; }
+  .sample-post .label{ display:block; font-family:'IBM Plex Mono'; font-size:9.5px; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-soft); font-style:normal; margin-bottom:4px; }
   .intro-block{ font-size:15px; line-height:1.75; color: var(--text-soft); max-width: 640px; margin-bottom: 34px; }
   .intro-block b{ color: var(--text); font-weight:600; }
 
-  .gap-table{ display:grid; grid-template-columns: 1fr 1fr; gap:1px; background: var(--line); border-radius: var(--radius); overflow:hidden; margin: 10px 0 40px 0; box-shadow: var(--shadow); }
-  .gap-table > div{ background: var(--card); padding: 22px; font-size:14px; line-height:1.55; }
-  .gap-table .head{ font-family:'IBM Plex Mono'; font-size:11px; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-soft); font-weight:500; }
+  .gap-table{ display:flex; flex-direction:column; gap:1px; background: var(--line); border-radius: var(--radius); overflow:hidden; margin: 10px 0 40px 0; box-shadow: var(--shadow); }
+  .gap-row{ display:grid; grid-template-columns: 1fr 1fr; gap:1px; background: var(--line); }
+  .gap-row > div{ background: var(--card); padding: 22px; font-size:14px; line-height:1.55; }
+  .gap-row.head > div{ font-family:'IBM Plex Mono'; font-size:11px; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-soft); font-weight:500; }
   .gap-table b{ color: var(--blue); }
 
   .promise-block{ background: var(--card); border:1px solid var(--line); box-shadow: var(--shadow); border-radius: var(--radius); padding:26px 28px; margin-bottom: 44px; }
@@ -145,13 +166,14 @@
   .summary-list .item div b{ color: var(--text); }
 
   /* SERVICES */
-  .services{ display:grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+  .services{ display:grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
   .service-card{ background: var(--card); border:1px solid var(--line); box-shadow: var(--shadow); border-radius: var(--radius); padding: 28px; display:flex; flex-direction:column; }
   .service-card .phase{ font-family:'IBM Plex Mono'; font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color: var(--text-soft); margin-bottom:10px; }
   .service-card h3{ font-size:19px; margin-bottom:14px; }
   .service-card ul{ padding-left:18px; margin:0 0 22px 0; font-size:13.5px; color: var(--text-soft); line-height:1.7; }
   .service-card .price{ margin-top:auto; font-family:'Inter'; font-weight:700; font-size:23px; color: var(--blue); }
   .service-card .price span{ font-family:'Inter'; font-weight:400; font-size:12px; color: var(--text-soft); }
+  .service-card .price-usd{ font-family:'IBM Plex Mono'; font-size:11px; color: var(--text-soft); margin-top:4px; }
 
   /* CONTACT */
   .contact-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items:start; }
@@ -170,7 +192,11 @@
 
   @media (max-width: 720px){
     .hero h1{ font-size:38px; }
-    .services, .contact-grid, .gap-table, .sub-cards{ grid-template-columns: 1fr; }
+    .services, .contact-grid, .sub-cards{ grid-template-columns: 1fr; }
+    .gap-row{ grid-template-columns: 1fr; }
+    .gap-row.head{ display:none; }
+    .gap-row > div{ position:relative; padding-top:36px; }
+    .gap-row > div::before{ content: attr(data-label); position:absolute; top:12px; left:22px; font-family:'IBM Plex Mono'; font-size:10px; text-transform:uppercase; letter-spacing:0.06em; color: var(--amber); }
     .nav-links{ display:none; }
   }
 </style>
@@ -179,7 +205,7 @@
 
 <nav>
   <div class="nav-inner">
-    <div class="mark">MK</div>
+    <div class="mark">CK</div>
     <div class="nav-links">
       <a href="#work">Work</a>
       <a href="#services">Services</a>
@@ -196,10 +222,10 @@
 <div class="wrap">
 
   <section class="hero">
-    <div class="badge"><span class="dot"></span>Currently taking on new projects</div>
-    <h1>I find the identity<br>your business<br><span class="accent">already has.</span></h1>
-    <p class="sub">Positioning, brand strategy, and content systems that turn "just another option" into "the one people choose" — built from what's already true about the business, not a generic playbook.</p>
-    <div class="ambient" id="ambientLine">☀ Ordinary hours — everyone looks the same</div>
+    <p class="eyebrow">Google Maps Growth Consultant</p>
+    <div class="badge"><span class="dot"></span>Booking 1-2 new projects this month</div>
+    <h1>I make your Google Maps listing your best salesperson.</h1>
+    <p class="sub">I optimize your Google Business Profile, build a review system that actually works, and run local collabs that bring real customers through the door. All within Google's rules, so your listing never gets penalized for it.</p>
     <div class="cta-row">
       <a class="btn btn-primary" href="#work">See the work</a>
       <a class="btn btn-secondary" href="#contact">Start a project</a>
@@ -207,95 +233,106 @@
   </section>
 
   <section class="credibility">
-    <p class="label">Background across global enterprises &amp; high-growth startups</p>
+    <p class="label">Background across global enterprises &amp; high-growth startups, including Google itself</p>
     <div class="logos">
-      <span>Samsung</span><span>Google</span><span>Trip.com Group</span>
-      <span>KB Financial Group</span><span>ULOS Skincare</span><span>LaundryGo</span>
+      <div class="logo-item"><div class="logo-mark">S</div><span>Samsung</span></div>
+      <div class="logo-item"><div class="logo-mark">G</div><span>Google</span></div>
+      <div class="logo-item"><div class="logo-mark">T</div><span>Trip.com Group</span></div>
+      <div class="logo-item"><div class="logo-mark">KB</div><span>KB Financial Group</span></div>
+      <div class="logo-item"><div class="logo-mark">U</div><span>ULOS Skincare</span></div>
+      <div class="logo-item"><div class="logo-mark">L</div><span>LaundryGo</span></div>
     </div>
+  </section>
+
+  <section id="why-maps">
+    <p class="eyebrow">Why This Matters</p>
+    <h2 class="section-title">Your Google Maps listing is your new storefront window.</h2>
+    <p class="section-intro">Before someone reads your menu, sees your interior, or talks to you in person, they see your Maps listing. That's the actual first impression now, not your shopfront.</p>
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="num">87%</div>
+        <div class="desc">of consumers use Google to find local businesses</div>
+        <div class="source">BrightLocal, 2026</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">76%</div>
+        <div class="desc">of people who search "near me" visit that business within 24 hours</div>
+        <div class="source">Think with Google</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">2.7x</div>
+        <div class="desc">more likely to trust a business with a complete Google profile</div>
+        <div class="source">Google Business Profile Help</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">68%</div>
+        <div class="desc">of consumers won't consider a business rated under 4 stars</div>
+        <div class="source">BrightLocal, 2026</div>
+      </div>
+    </div>
+    <p class="why-closer">If your profile is incomplete, out of date, or has thin, old reviews, most people never get far enough to find out how good your business actually is. They decide before they walk in. <b>Pillar 01 exists to fix exactly that first impression.</b></p>
   </section>
 
   <section id="about">
     <p class="eyebrow">About</p>
     <h2 class="section-title">Clarice Kwon</h2>
     <div class="about-body">
-      <p>I'm a brand and experience strategist based in Auckland. Before working directly with small business owners, my background spans global teams and fast-moving startups — which is where I learned that most businesses don't have a marketing problem, they have an identity problem.</p>
-      <p>I help owners define who their space is really for, then build the positioning, content system, and in-store experience that makes that identity impossible to miss.</p>
+      <p>I'm a Google Maps growth consultant based in Auckland. Before working directly with small business owners, my background spans global teams, including Google itself, and fast-moving startups. That's where I learned most small businesses don't have a marketing problem. They have a visibility problem: real customers search for them and either can't find them, or land on a listing that doesn't reflect how good the business actually is.</p>
+      <p>I fix that on the one platform that decides whether a local search turns into a customer: Google Maps. Profile, reviews, and local partnerships, all built the compliant way, so nothing you gain gets taken away by a policy violation.</p>
     </div>
   </section>
 
   <section id="work">
     <p class="eyebrow">Selected Strategic Work</p>
-    <h2 class="section-title">Mixed 1981 — Auckland CBD Café</h2>
+    <h2 class="section-title">Mixed 1981: Auckland CBD Café</h2>
     <span class="case-tag">Sample Engagement</span>
     <div class="intro-block">
-      Mixed 1981 is a Korean-inspired café in Auckland CBD with a genuinely rare "blue ocean" advantage: <b>extended late-night hours</b> and <b>high-quality seating</b> — something almost no other café in the area offers. I was brought in to figure out why that advantage wasn't translating into foot traffic or brand recognition.
+      Mixed 1981 is a Korean-inspired café in Auckland CBD with a genuinely rare "blue ocean" advantage: <b>extended late-night hours</b> and <b>high-quality seating</b>, something almost no other café in the area offers. I was brought in to figure out why that advantage wasn't translating into foot traffic or brand recognition.
     </div>
     <div class="case-note">
-      This engagement is currently paused before execution — shown here as a full sample of the diagnostic, strategy, and action plan I deliver, not as a completed results case study.
+      This engagement is currently paused before execution, shown here as a full sample of the diagnostic, strategy, and action plan I deliver, not as a completed results case study. This is one example of the process, and the same framework applies well beyond cafés: any small business sitting on an advantage customers don't fully see yet.
     </div>
 
     <div class="subhead"><span class="letter">01</span>The Problem: An "Identity Gap"</div>
     <div class="body-text">
-      <p>Mixed 1981 had the ingredients for a standout brand, but the public perception didn't match the opportunity. The brand was sitting between four different identities at once — study café, dessert café, Korean-inspired café, and late-night café — which created confusion and weak recall instead of a clear reason to choose it.</p>
+      <p>Mixed 1981 had the ingredients for a standout brand, but the public perception didn't match the opportunity. The brand was sitting between four different identities at once: study café, dessert café, Korean-inspired café, and late-night café. That created confusion and weak recall instead of a clear reason to choose it. This is exactly the kind of gap that shows up on a Google Maps listing: what shows up in search doesn't match what the business actually is.</p>
     </div>
     <div class="gap-table">
-      <div class="head">Current Perception</div>
-      <div class="head">The Opportunity</div>
-      <div>A "hidden gem" people stumble upon, rather than seek out</div>
-      <div>A <b>destination staple</b> for Auckland's creative &amp; student community</div>
-      <div>Caught between study café, dessert café, Korean café and late-night café — confusing, weak recall</div>
-      <div>One clear line: the <b>"Seoul-Inspired Urban Retreat"</b> for deep work</div>
-      <div>Functional late-night hours, but no defined night-time experience, behavioural triggers, or content reinforcing "night culture"</div>
-      <div>An <b>intentional night-time experience</b> people actively plan around — the "Sunset Switch"</div>
+      <div class="gap-row head">
+        <div>Current Perception</div>
+        <div>The Opportunity</div>
+      </div>
+      <div class="gap-row">
+        <div data-label="Current Perception">A "hidden gem" people stumble upon, rather than seek out</div>
+        <div data-label="The Opportunity">A <b>destination staple</b> for Auckland's creative &amp; student community</div>
+      </div>
+      <div class="gap-row">
+        <div data-label="Current Perception">Caught between study café, dessert café, Korean café and late-night café: confusing, weak recall</div>
+        <div data-label="The Opportunity">One clear line: the <b>"Seoul-Inspired Urban Retreat"</b> for deep work</div>
+      </div>
+      <div class="gap-row">
+        <div data-label="Current Perception">Functional late-night hours, but no defined night-time experience, behavioural triggers, or content reinforcing "night culture"</div>
+        <div data-label="The Opportunity">An <b>intentional night-time experience</b> people actively plan around: the "Sunset Switch"</div>
+      </div>
     </div>
 
-    <div class="subhead"><span class="letter">02</span>The Strategy: Three Pillars</div>
+    <div class="subhead"><span class="letter">02</span>How This Maps to a Google Maps Growth Plan</div>
+    <div class="body-text">
+      <p>The diagnostic above isn't a generic brand exercise. Every finding feeds directly into the same three pillars below the services on this page.</p>
+    </div>
 
     <div class="pillar-block">
-      <div class="pillar-head"><span class="num">Pillar I</span><h4>Defining the "Mixed 1981 Tribe"</h4></div>
+      <div class="pillar-head"><span class="num">Pillar 01</span><h4>Profile &amp; Positioning Reset</h4></div>
       <div class="body-text">
-        <p>To move beyond a generic café, the brand needed to define who it's for — not just what it sells.</p>
+        <p>The positioning consult comes first, since a rewritten Google Business Profile description is only as good as the identity behind it.</p>
         <ul>
-          <li><b>Target persona:</b> the "Ambitious Creative" and the "Deep-Work Student."</li>
-          <li><b>Brand promise:</b> "Auckland's Second Wind" — a space for people who find their flow after the rest of the city closes.</li>
-          <li><b>Social proof shift:</b> from photos of coffee to photos of people in their element — laptops, notebooks, and signature drinks in a focused environment — making the night-time usage visible and aspirational.</li>
+          <li><b>Target persona:</b> the "Ambitious Creative" and the "Deep-Work Student," the audience the rewritten description and categories would be built around.</li>
+          <li><b>Positioning line:</b> "Seoul-Inspired Urban Retreat," short enough to open the Google description and anchor every category and attribute choice.</li>
         </ul>
       </div>
-    </div>
-
-    <div class="pillar-block">
-      <div class="pillar-head"><span class="num">Pillar II</span><h4>The "Night-Time Destination"</h4></div>
-      <div class="body-text">
-        <p>Being open late is a function. Making it a destination is the marketing solution — shifting from selling "late hours" to selling "the night-time vibe."</p>
-      </div>
       <div class="sub-cards">
         <div class="sub-card">
-          <div class="tag">A. Marketing the "Sunset Switch"</div>
-          <h5>The After-Hours Collective</h5>
-          <ul>
-            <li>A content series showcasing high-aesthetic "study-with-me" and working-creative snapshots of the evening atmosphere</li>
-            <li>Captions that define the guest — "the lights are low, the focus is high" — turning a visit into an identity statement, not just a coffee run</li>
-          </ul>
-        </div>
-        <div class="sub-card">
-          <div class="tag">B. Building "Why Go Tonight?"</div>
-          <h5>Night-only features &amp; environment shift</h5>
-          <ul>
-            <li>"Midnight Fuel" combos and caffeine-free "Night-Cap" Korean herbal teas/ades, branded specifically for evening visitors</li>
-            <li>At 6pm, the café shifts from Day Mode to Focus Mode: dimmed overheads, warm desk lamps, and a curated "Seoul Night" lo-fi/jazz playlist</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="pillar-block">
-      <div class="pillar-head"><span class="num">Pillar III</span><h4>Digital Precision &amp; Premium Branding</h4></div>
-      <div class="body-text">
-        <p>Because Mixed 1981 is a "hidden gem," the first impression happens on Maps and Instagram before anyone walks in — consistency there is what protects a premium price point.</p>
-      </div>
-      <div class="sub-cards">
-        <div class="sub-card">
-          <div class="tag">A. Google Maps cleanup</div>
+          <div class="tag">Google Maps audit actions</div>
           <h5>Eliminate confusion</h5>
           <ul>
             <li>Remove outdated photos from the café's former identity that dilute the premium Seoul aesthetic</li>
@@ -303,13 +340,45 @@
           </ul>
         </div>
         <div class="sub-card">
-          <div class="tag">B. Instagram — the "Rule of Two"</div>
-          <h5>Consistent, curated feed</h5>
+          <div class="tag">Social proof direction</div>
+          <h5>What the photo shot list prioritizes</h5>
           <ul>
-            <li>Lock in two fonts for all stories and posts, for instant brand recognition</li>
-            <li>Follow a consistent "Product → Person → Space" posting rhythm so the grid reads as intentional, not random</li>
+            <li>From photos of coffee to photos of people in their element: laptops, notebooks, and signature drinks in a focused setting</li>
+            <li>Makes the night-time usage visible and aspirational to anyone scrolling the listing before visiting</li>
+            <li>Their existing Instagram currently swings between warm, yellow-toned daytime shots and cool blue night shots with no consistent edit. One grading preset per mode (Day, Focus) would tie the Instagram grid and the Google listing together at a glance</li>
           </ul>
         </div>
+      </div>
+    </div>
+
+    <div class="pillar-block">
+      <div class="pillar-head"><span class="num">Pillar 02</span><h4>Monthly Maps Growth</h4></div>
+      <div class="body-text">
+        <p>Being open late is a function. A monthly content engine is what turns it into something worth posting about, on Google and Instagram alike.</p>
+      </div>
+      <div class="sub-cards">
+        <div class="sub-card">
+          <div class="tag">Sample Google Posts content</div>
+          <h5>The "Sunset Switch" angle</h5>
+          <p style="font-size:12.5px;color:var(--text-soft);line-height:1.55;margin:0 0 4px 0;">Two draft posts, built around a specific, searchable detail rather than a mood-board adjective:</p>
+          <div class="sample-post"><span class="label">Google Post, evening</span>The lights go down, the focus goes up. Open till late for anyone chasing a deadline or a change of scenery. Try the Midnight Fuel oat latte and claim your corner.</div>
+          <div class="sample-post"><span class="label">Google Post, feature</span>New after 6pm: our caffeine-free Night-Cap barley tea, made in-house. For the after-dark crowd who still want something warm in hand.</div>
+        </div>
+        <div class="sub-card">
+          <div class="tag">Cross-platform consistency</div>
+          <h5>Instagram: the "Rule of Two"</h5>
+          <ul>
+            <li>Two fonts locked in: a soft serif for evening captions and quotes, a clean sans for hours, menu, and info, so the voice reads the same whether someone lands on Instagram or a Google Post</li>
+            <li>A fixed weekly rhythm: Monday product (the Night-Cap drink), Wednesday person (a customer mid-focus, tagged with permission), Friday space (the Focus Mode lighting change), reused directly as the Pillar 02 monthly content calendar</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="pillar-block">
+      <div class="pillar-head"><span class="num">Pillar 03</span><h4>Local Collab Growth</h4></div>
+      <div class="body-text">
+        <p>This wasn't part of the original engagement, the collab concept came together after this diagnostic. But the same logic applies directly to a business like this. <b>The Tea Thief</b>, an Auckland boutique tea maker based on the North Shore and founded by Ruth Wynne-Capstick and David Capstick, already sells its organic, ethically-sourced blends under categories like "Focus" and "Caffeine Free," born out of Ruth's own search for a caffeine-free alternative during a health journey. That's a genuine, pre-existing product fit for a "Night-Cap" drink built specifically for Mixed 1981's Focus Mode hours, not a stretch pairing invented for a pitch deck. To be clear, this is illustrative, not an existing partnership, but it shows what a well-matched collab actually looks like: a maker whose own story already lines up with the moment in the customer's evening, rather than any nearby business with a product to move. The tea brand gets a curated space to introduce its blends to a new audience; Mixed 1981 gets a menu item with its own story to put in a Google Post or an Instagram caption. And a customer who tries something new and names it specifically in a review, "The Tea Thief's Night-Cap blend," is worth more to a Google listing than a generic five-star rating. That kind of specific, keyword-carrying detail is what actually helps a profile surface for the exact searches that matter.</p>
       </div>
     </div>
 
@@ -322,15 +391,15 @@
     <div class="summary-list">
       <div class="item">
         <span class="mkr">→</span>
-        <div><p><b>Brand positioning:</b> reposition the marketing to focus on the user — creatives and students — rather than just the menu.</p></div>
+        <div><p><b>Pillar 01, Positioning:</b> reposition the marketing to focus on the user (creatives and students) rather than just the menu, so the Google listing describes something specific instead of "just another café."</p></div>
       </div>
       <div class="item">
         <span class="mkr">→</span>
-        <div><p><b>Experience marketing:</b> launch the "Sunset Switch" campaign so the evening hours read as an intentional vibe, not just a functional convenience.</p></div>
+        <div><p><b>Pillar 02, Content:</b> launch the "Sunset Switch" campaign as recurring Google Posts and Instagram content, so the evening hours read as an intentional vibe, not just a functional convenience.</p></div>
       </div>
       <div class="item">
         <span class="mkr">→</span>
-        <div><p><b>Digital audit:</b> cleanse Google Maps of outdated branding and unify Instagram typography immediately.</p></div>
+        <div><p><b>Pillar 01, Maps audit:</b> clear outdated photos, rewrite the profile description, and set up a compliant review-request system.</p></div>
       </div>
     </div>
   </section>
@@ -338,46 +407,53 @@
   <section id="services">
     <p class="eyebrow">Services</p>
     <h2 class="section-title">Work with me</h2>
-    <p class="section-intro">A three-phase system — from finding the identity to living inside it every month.</p>
+    <p class="section-intro">Three pillars, all pointed at one goal: making your Google Maps listing convert. Every deliverable is a ready-to-use document, calendar, or toolkit. No in-house marketing team required, and nothing here risks a Google policy violation.</p>
     <div class="services">
       <div class="service-card">
-        <div class="phase">Phase 01</div>
-        <h3>Brand Positioning Foundation</h3>
+        <div class="phase">Pillar 01, one-time</div>
+        <h3>Profile &amp; Positioning Reset</h3>
         <ul>
-          <li>Refined brand positioning</li>
-          <li>Target audience definition</li>
-          <li>Tone of voice direction</li>
+          <li>A completed profile audit checklist: what's missing, outdated, or hurting visibility, section by section</li>
+          <li>A short positioning consult, then a rewritten business description &amp; category list built from it</li>
+          <li>A photo shot list, plus the specific tactics that improve your odds of Google actually using your chosen cover photo</li>
+          <li>Review-request toolkit: QR code, card design, and text/email templates</li>
         </ul>
-        <div class="price">$200</div>
+        <div class="price">$250 NZD</div>
+        <div class="price-usd">approx. $145 USD</div>
       </div>
       <div class="service-card">
-        <div class="phase">Phase 02</div>
-        <h3>Strategy + Action Plan</h3>
+        <div class="phase">Pillar 02, monthly</div>
+        <h3>Monthly Maps Growth</h3>
         <ul>
-          <li>Final brand statement</li>
-          <li>Instagram content system &amp; posting calendar</li>
-          <li>Monthly campaign direction</li>
-          <li>Visual direction &amp; references</li>
+          <li>4 Google Posts per month, written and ready to publish</li>
+          <li>Review response management, in your voice</li>
+          <li>Monthly report: profile views, calls, and direction requests</li>
+          <li>A monthly photo refresh: 3-5 new images added to keep the profile active</li>
+          <li>Q&amp;A monitoring: new questions on your profile answered within 48 hours</li>
         </ul>
-        <div class="price">Quoted <span>per project</span></div>
+        <div class="price">$350 NZD <span>/ month</span></div>
+        <div class="price-usd">approx. $205 USD</div>
       </div>
       <div class="service-card">
-        <div class="phase">Phase 03</div>
-        <h3>Ongoing Support</h3>
+        <div class="phase">Pillar 03, per collab</div>
+        <h3>Local Collab Growth</h3>
         <ul>
-          <li>Monthly content direction</li>
-          <li>Campaign planning &amp; refinement</li>
-          <li>Feedback on posts / branding</li>
+          <li>A shortlist of matching local businesses to approach</li>
+          <li>A 1-page collab concept: offer, timing, content hook</li>
+          <li>A step-by-step execution checklist for both businesses</li>
+          <li>A "share your visit" prompt sheet for genuine attendees</li>
         </ul>
-        <div class="price">$250 <span>/ month</span></div>
+        <div class="price">From $300 NZD <span>per collab</span></div>
+        <div class="price-usd">approx. $175 USD</div>
       </div>
     </div>
+    <p class="section-intro" style="margin-top:28px; margin-bottom:0;">Note on compliance: reviews are never incentivized, gated, or scripted. Google and NZ's Fair Trading Act both prohibit that, and it puts your listing at risk. Everything above works within the rules, on purpose.</p>
   </section>
 
   <section id="contact">
     <p class="eyebrow">Contact</p>
     <h2 class="section-title">Start a project</h2>
-    <p class="section-intro">Tell me a bit about your business — I read every message myself.</p>
+    <p class="section-intro">Tell me a bit about your business. I read every message myself.</p>
     <div class="contact-grid">
       <form id="contactForm">
         <input type="text" name="Name" placeholder="Your name" required>
@@ -398,18 +474,14 @@
 
 </div>
 
-<footer>© 2026 Clarice Kwon — Brand &amp; Experience Strategy</footer>
+<footer>© 2026 Clarice Kwon: Google Maps Growth Consultant</footer>
 
 <script>
   const toggle = document.getElementById('modeToggle');
   const label = document.getElementById('toggleLabel');
-  const ambient = document.getElementById('ambientLine');
   toggle.addEventListener('click', () => {
     const isNight = document.body.classList.toggle('night');
     label.textContent = isNight ? 'Back to Day Mode' : 'Try the Sunset Switch';
-    ambient.textContent = isNight
-      ? '🌙 11:47 PM — Focus Mode: lights low, focus high'
-      : '☀ Ordinary hours — everyone looks the same';
   });
 
   const contactForm = document.getElementById('contactForm');
@@ -451,7 +523,7 @@
       submitBtn.disabled = false;
       formStatus.style.display = 'block';
       formStatus.style.color = '#C94E4E';
-      formStatus.innerHTML = 'Something went wrong — please email me directly at ' +
+      formStatus.innerHTML = 'Something went wrong, please email me directly at ' +
         '<a href="mailto:kwon.clarice@gmail.com?subject=Project%20inquiry&body=' +
         encodeURIComponent('Name: ' + name + '\nBusiness: ' + business + '\nMessage: ' + message) +
         '">kwon.clarice@gmail.com</a>.';
